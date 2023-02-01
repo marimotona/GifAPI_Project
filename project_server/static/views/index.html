@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>OriginalProject</title>
+    <link href="../static/layout.css" rel="stylesheet" />
+    <script src="../static/index.js" defer></script>
+  </head>
+  <body>
+    <h1>Search Gif !</h1>
+
+    <div class="input">
+      <input type="text" id="word" placeholder="word" class="search-text" />
+      <input type="text" id="num" placeholder="limit" class="search-text" />
+      <button type="submit" id="button" class="search-button">
+        <div id="text-button" onclick="pushButton()">
+          <img src="https://i.ibb.co/SN1SDhM/typing-fast-typing.gif" />
+        </div>
+      </button>
+    </div>
+
+    <div id="result" class="result_img"></div>
+  </body>
+</html>
