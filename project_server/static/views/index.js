@@ -20,11 +20,14 @@ function displayResults(gifs) {
 async function pushButton() {
   const inputword = document.getElementById("word").value;
   const inputnum = document.getElementById("num").value;
+  // const data = await fetch(
+  //   "http://localhost:3000/search/" + inputword + "/" + inputnum
+  // ).then(res => res.json());
+
   const data = await fetch(
-    "http://localhost:3000/search/" + inputword + "/" + inputnum
+    `http://localhost:3000/search?word=${inputword}&num=${inputnum}`
   ).then(res => res.json());
-  console.log(data);
-  console.log(data["searchresult"]);
+
   console.log("サーバーからレスポンス返ってきたよ");
   const ele = data["searchresult"];
   displayResults(ele);

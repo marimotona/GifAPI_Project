@@ -23,7 +23,6 @@ app.use(
 );
 
 async function search(word, num) {
-  console.log("search");
   const API_KEY = process.env.API_KEY;
 
   const url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${word}&limit=${num}&offset=0&rating=g&lang=en`;
@@ -56,18 +55,23 @@ app.get("/", function(req, res, next) {
   });
 });
 
-app.get("/search/:word/:num", async (req, res) => {
-  console.log(req.url);
-  const word = req.params.word;
-  const num = req.params.num;
+// app.get("/search/:word/:num", async (req, res) => {
+//   console.log(req.url);
+//   const word = req.params.word;
+//   const num = req.params.num;
+//   const gifUrls = await search(word, num);
+//   console.log(typeof gifUrls);
+//   res.json({ searchresult: gifUrls }); //object
+// });
+
+app.get("/search", async (req, res) => {
+  const word = req.query.word;
+  const num = req.query.num;
   const gifUrls = await search(word, num);
   console.log(typeof gifUrls);
   res.json({ searchresult: gifUrls }); //object
 });
 
-app.get("/search/", function(req, res, next) {
-  console.log("別の");
-});
 
 app.listen(PORT, function(err) {
   if (err) console.log(err);
